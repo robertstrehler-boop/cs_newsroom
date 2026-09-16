@@ -545,7 +545,7 @@
         <button class="gbtn" onclick="gateAddEditor()">Redakteur anlegen ＋</button>
       </div>
     </div>
-    <div class="gfoot">Zugang nur für Redakteurinnen und Redakteure · <a href="hilfe.html" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:none">📖 Handbuch</a></div>
+    <div class="gfoot">Zugang nur für Redakteurinnen und Redakteure · <a href="hilfe.html" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:none">Hilfe</a></div>
   </div>
 </div>
 
@@ -869,7 +869,7 @@ function setEditor(e){ currentEditor=e; try{ localStorage.setItem('nr-editor',e)
   paintEditor(); renderGrid(); renderStack(); toast('Angemeldet als '+e); }
 function toggleEditorMenu(ev){ ev.stopPropagation(); const m=document.getElementById('editormenu');
   m.innerHTML=EDITORS.map(e=>`<div class="em ${e===currentEditor?'on':''}" onclick="setEditor('${e}')"><span class="ini">${e}</span>${e}</div>`).join('')
-    + `<div class="em" onclick="window.open('hilfe.html','_blank')" style="border-top:1px solid var(--line)">📖 Handbuch</div>`
+    + `<div class="em" onclick="window.open('hilfe.html','_blank')" style="border-top:1px solid var(--line)">Hilfe</div>`
     + `<div class="em" onclick="gateLogout()" style="color:var(--dim)">Abmelden</div>`;
   m.classList.toggle('on'); }
 document.addEventListener('click',()=>{ const m=document.getElementById('editormenu'); if(m) m.classList.remove('on'); const r=document.getElementById('reassign-menu'); if(r) r.classList.remove('on'); });
