@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS Newsroom — Handbuch für die Redaktion</title>
+<meta name="robots" content="noindex">
+<style>
+  @page{size:A4;margin:22mm 20mm}
+  :root{--navy:#1c2837;--green:#7ba30f;--lime:#a2c617;--grey:#6b7482;--line:#dfe3e9}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font:11pt/1.55 'Segoe UI',Calibri,-apple-system,sans-serif;color:#232a33;background:#eef1f4}
+  .navbar{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;display:flex;align-items:center;gap:14px;padding:11px 22px}
+  .navbar a{color:var(--lime);font-weight:700;text-decoration:none;font-size:10.5pt}
+  .navbar a:hover{text-decoration:underline}
+  .navbar b{font-size:11pt;letter-spacing:.08em}
+  .navbar b span{color:var(--lime)}
+  .navbar .pr{margin-left:auto;color:#8fa0b4;font-size:9pt}
+  .blatt{max-width:186mm;margin:18px auto 60px;background:#fff;padding:16mm 18mm;box-shadow:0 6px 30px rgba(20,30,42,.12);border-radius:6px}
+  @media print{.navbar{display:none}.blatt{box-shadow:none;margin:0;padding:0;border-radius:0;max-width:none}body{background:#fff}}
+  .deck{margin:40mm 0 10mm}
+  .deck .marke{font-size:30pt;font-weight:800;color:var(--navy);letter-spacing:.04em}
+  .deck .marke span{color:var(--green)}
+  .deck .sub{font-size:20pt;font-weight:800;color:var(--navy);letter-spacing:.35em;margin-bottom:14mm}
+  .deck h1{font-size:17pt;color:var(--grey);font-weight:600;margin-bottom:4mm}
+  .deck .it{font-style:italic;color:var(--grey)}
+  .deck .stand{margin-top:30mm;font-size:9pt;color:var(--grey)}
+  .pb{page-break-before:always}
+  h2{font-size:15pt;color:var(--navy);margin:9mm 0 3mm;padding-bottom:1.5mm;border-bottom:2px solid var(--line)}
+  h3{font-size:11.5pt;color:var(--green);margin:5mm 0 2mm}
+  p{margin-bottom:2.5mm}
+  ul,ol{margin:0 0 3mm 6mm}
+  li{margin-bottom:1.6mm}
+  b{color:#1a222c}
+  .tipp{background:#eff5da;border-left:3.5px solid var(--lime);padding:2.5mm 4mm;margin:3mm 0;color:#3f5203;font-size:10.5pt}
+  .tipp b{color:#3f5203}
+  table{border-collapse:collapse;width:100%;margin:3mm 0 4mm;font-size:10pt}
+  th{background:var(--navy);color:#fff;text-align:left;padding:2mm 3mm;font-weight:700}
+  td{padding:1.8mm 3mm;border-bottom:1px solid var(--line)}
+  tr:nth-child(even) td{background:#f4f6f8}
+  .farb{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+  .anhang{font-style:italic;color:var(--grey);margin-bottom:4mm}
+  .toc li{margin-bottom:1mm}
+  .faq b{display:inline}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="./index.html">← Zurück zum Newsroom</a>
+  <b>COMMUNI<span>SYSTEMS</span> NEWSROOM · HANDBUCH</b>
+  <span class="pr">Drucken/PDF: Cmd/Strg+P</span>
+</div>
+
+<div class="blatt">
+
+<div class="deck">
+  <div class="marke">COMMUNI<span>SYSTEMS</span></div>
+  <div class="sub">NEWSROOM</div>
+  <h1>Handbuch für die Redaktion</h1>
+  <p class="it">Von der Meldung zum fertigen Beitrag — mit KIRA, eurer KI-Redaktionsassistentin</p>
+  <p class="stand">Stand: September 2026 · Version 1.0</p>
+</div>
+
+<div class="pb"></div>
+<h2>Inhalt</h2>
+<ol class="toc">
+  <li>Was ist der CS Newsroom?</li>
+  <li>Anmeldung</li>
+  <li>Das Grid — euer Themenvorrat</li>
+  <li>Sichtung — neue Alerts prüfen</li>
+  <li>Eigene Themen und KIRA-Recherche</li>
+  <li>Mein Stack — deine Schicht</li>
+  <li>Die Arbeitsmaske — vom Thema zum Beitrag</li>
+  <li>Entwürfe und Veröffentlicht-Historie</li>
+  <li>Firmen und Farben</li>
+  <li>Redaktionelle Spielregeln</li>
+  <li>Häufige Fragen</li>
+  <li>Anhang: Für Administratoren</li>
+</ol>
+
+<h2>1. Was ist der CS Newsroom?</h2>
+<p>Der CS Newsroom ist das Redaktionssystem der Communisystems Gruppe. Er sammelt automatisch Nachrichten zu allen Themenfeldern der Gruppe, bewertet sie vor, ordnet sie der passenden Firma zu und hilft euch, daraus fertige Beiträge für das Newsportal (WordPress) und LinkedIn zu machen.</p>
+<p>Das System besteht aus drei Bausteinen, von denen ihr im Alltag nur einen seht:</p>
+<ul>
+  <li><b>Der Newsroom</b> (die Web-Oberfläche) — hier arbeitet ihr: sichten, auswählen, schreiben lassen, redigieren, übergeben.</li>
+  <li><b>Der automatische Zulauf</b> — Google Alerts zu rund 40 Schlagworten der Gruppe laufen stündlich ins System und werden von KIRA nach Relevanz bewertet.</li>
+  <li><b>KIRA</b> — die KI-Assistentin des Newsrooms. Sie bewertet Meldungen, recherchiert Quellen, beantwortet Fragen, schreibt Textentwürfe im CS-Stil und erstellt LinkedIn-Posts. KIRA erfindet keine Fakten: Was nicht belegt ist, markiert sie als offen.</li>
+</ul>
+<div class="tipp"><b>Tipp:</b> KIRA liefert Entwürfe, keine fertige Wahrheit. Jeder Beitrag wird von einem Menschen redigiert und freigegeben — ihr bleibt die Redaktion.</div>
+<h3>Der Weg einer Meldung</h3>
+<ol>
+  <li><b>Sichtung:</b> Neue Meldungen aus den Alerts prüfen — übernehmen oder verwerfen.</li>
+  <li><b>Grid:</b> Der gemeinsame Themenvorrat der Redaktion. Hier liegt alles, was berichtenswert ist.</li>
+  <li><b>Mein Stack:</b> Deine persönliche Arbeitsliste — was du dir vorgenommen hast.</li>
+  <li><b>Arbeitsmaske:</b> Recherche, Texterstellung, Redigat, LinkedIn-Post.</li>
+  <li><b>Übergabe:</b> Fertigen Text nach WordPress kopieren — die Meldung wandert in die Historie.</li>
+</ol>
+
+<h2>2. Anmeldung</h2>
+<p>Den Newsroom erreicht ihr im Browser unter der Redaktions-URL (bekommt ihr von eurem Admin). Es gibt keine persönlichen Passwörter, sondern zwei Stufen:</p>
+<ol>
+  <li><b>Team-Passwort:</b> das gemeinsame Passwort der Redaktion. Einmal eingeben — der Browser merkt es sich.</li>
+  <li><b>Kürzel wählen:</b> Danach wählst du dein Redakteurskürzel (z. B. RS). Der Newsroom zeigt dir damit deinen persönlichen Stack und markiert deine Beiträge.</li>
+</ol>
+<p>Neue Kolleginnen und Kollegen legen sich beim ersten Login selbst an: auf das <b>＋</b> in der Kürzelauswahl klicken, Vorname und Kürzel eintragen — fertig. Die Liste gilt für das ganze Team.</p>
+<p><b>Abmelden:</b> oben rechts auf dein Kürzel klicken → „Abmelden“. Zum Kürzelwechsel (z. B. am geteilten Rechner) im selben Menü ein anderes Kürzel wählen.</p>
+
+<h2>3. Das Grid — euer Themenvorrat</h2>
+<p>Nach dem Login landet ihr im Grid: alle offenen Meldungen als Kacheln, die neuesten oben. Jede Kachel zeigt:</p>
+<ul>
+  <li><b>Farbkante + Firmenname:</b> die Zuordnung zur Firma der Gruppe (Farben siehe Kapitel 9).</li>
+  <li><b>Grüner Punkt:</b> Meldung ist neu seit deinem letzten Besuch.</li>
+  <li><b>✦ KIRA:</b> von KIRA im Netz entdeckter Themenvorschlag — inklusive kurzer Begründung, warum er relevant sein könnte.</li>
+  <li><b>Schlagwort und Quellenzahl:</b> Thema (#Security, #Handwerk …) und wie viele Quellen bereits vorliegen.</li>
+</ul>
+<p>Beim Überfahren einer Kachel mit der Maus erscheinen drei Aktionen:</p>
+<ul>
+  <li><b>＋ (grün):</b> Meldung auf deinen Stack legen — „die mache ich“.</li>
+  <li><b>★:</b> Als Top-Thema markieren. Die Meldung wird zur großen dunklen Kachel und rutscht nach oben — das gemeinsame Aufmacher-Signal für das Team.</li>
+  <li><b>✕:</b> Aus dem Grid löschen (z. B. Dublette oder doch nicht relevant).</li>
+</ul>
+<h3>Filterleiste</h3>
+<p>Über dem Grid könnt ihr filtern: <b>Alle</b> · <b>✦ Vorschläge</b> (nur KIRA-Funde) · oder eine der <b>Firmen</b> (CS Gruppe, CS Care, commpanion, hup-si, Light DS, wunderbar, WE RIDE). Nochmal klicken hebt den Filter auf.</p>
+
+<h2>4. Sichtung — neue Alerts prüfen</h2>
+<p>Der Button <b>„Sichtung“</b> (mit Zähler) öffnet den Eingangskorb: alle neuen Meldungen aus den Google Alerts, von KIRA nach Relevanz sortiert (Score 0–100 mit kurzer Begründung).</p>
+<ul>
+  <li><b>Übernehmen:</b> Meldung wandert ins Grid — sie ist damit Teil des Themenvorrats.</li>
+  <li><b>Verwerfen:</b> Meldung verschwindet (PR, Gewinnspiele, doppelt, irrelevant).</li>
+  <li><b>„Alle relevanten übernehmen“:</b> übernimmt alles mit Score ab 50 auf einen Klick.</li>
+  <li><b>„↻ Neue Alerts holen“:</b> stößt den Mail-Import sofort an, falls ihr nicht auf den Stundenrhythmus warten wollt.</li>
+</ul>
+<div class="tipp"><b>Tipp:</b> Die Firmen-Zuordnung passiert automatisch über das Alert-Schlagwort. Liegt eine Meldung falsch, ändert ihr die Firma einfach in der Meldung — nichts ist in Stein gemeißelt.</div>
+
+<h2>5. Eigene Themen und KIRA-Recherche</h2>
+<h3>✦ Themen finden</h3>
+<p>Über den Button „Themen finden“ durchsucht KIRA das Netz nach aktuellen, belegten Themen — frei formuliert („Was gibt es Neues zur NIS-2-Umsetzung?“) oder per Klick auf einen der vorbereiteten Suchvorschläge. Jeder Fund kommt mit Quelle und Datum; ein Klick legt ihn ins Grid.</p>
+<h3>＋ Eigenes Thema</h3>
+<p>Für alles, was nicht aus den Alerts kommt: Titel eintragen, Firma und Schlagwort wählen, optional einen Quellenlink (aus dem KIRA später den Volltext zieht) und eine Notiz für KIRA („Blickwinkel: Kosten für kleine Betriebe“). Das Thema erscheint als Kachel mit dem Vermerk „Eigenes Thema“.</p>
+
+<h2>6. Mein Stack — deine Schicht</h2>
+<p>Der Stack ist deine persönliche Arbeitsliste. Was du mit ＋ übernimmst, gehört dir — die Kollegen sehen es, greifen es aber nicht an. Der Button „Mein Stack“ oben rechts öffnet die Liste; „Stack verarbeiten →“ führt dich nacheinander durch deine Meldungen in die Arbeitsmaske.</p>
+<p><b>Übergeben statt liegenlassen:</b> In der Arbeitsmaske kannst du eine Meldung über „An Kolleg:in“ direkt jemand anderem auf den Stack legen — sie erscheint dort als „neu übergeben“ markiert.</p>
+
+<div class="pb"></div>
+<h2>7. Die Arbeitsmaske — vom Thema zum Beitrag</h2>
+<p>Die Arbeitsmaske ist das Herzstück: links der Text, rechts KIRA. Der übliche Ablauf:</p>
+<h3>Schritt 1 — KIRA recherchieren lassen</h3>
+<p>KIRA lädt die Quelle, listet sie mit Einschätzung der Glaubwürdigkeit (Primär / Hoch / Mittel), erstellt einen <b>Faktencheck</b> (belegt / unsicher / Widerspruch — jeweils mit Fundstelle) und schlägt drei <b>Blickwinkel</b> vor. Unter „Fehlt noch“ steht, was vor Veröffentlichung zu klären ist.</p>
+<p><b>Frag KIRA:</b> Freies Fragefeld zur Meldung („Gibt es Vergleichszahlen zum Vorjahr?“). KIRA antwortet nur aus dem Quellenmaterial — steht es nicht drin, sagt sie das und nennt, wo man es prüfen könnte.</p>
+<h3>Schritt 2 — Text erstellen</h3>
+<ul>
+  <li><b>Modus wählen:</b> Kurz (250–300 Wörter), News (350–500) oder Analyse (700–1000).</li>
+  <li><b>Blickwinkel anklicken</b> und optional Notizen mitgeben.</li>
+  <li><b>Schreiben lassen:</b> KIRA liefert immer zwei eigenständige Fassungen — A und B — mit unterschiedlichem Einstieg. Dazu je drei Takeaways, SEO-Titel, Slug und Meta-Beschreibung sowie die Liste offener Fragen.</li>
+</ul>
+<p>Die Texte folgen der CS-Struktur: Nachrichtenanlass mit Zahl und Quelle → welches Problem sich daraus für Unternehmen ergibt → Erklärteil mit Zwischenüberschriften (gern als Fragen) → Handlungsempfehlung → kurzes „Wir können helfen“-Angebot passend zur Firma. Ist die Quellenlage dünn, vertieft KIRA fachlich (Definitionen, Rechtsgrundlagen, Prüffragen für Betriebe) — sie erfindet aber nie Zahlen, Namen oder Zitate.</p>
+<h3>Schritt 3 — Redigieren</h3>
+<p>Überschrift, Teaser, Fließtext und Takeaways sind direkt in der Maske editierbar — einfach hineinklicken und tippen. Prüft dabei immer:</p>
+<ul>
+  <li>Stimmen alle Zahlen mit dem Faktencheck überein?</li>
+  <li>Sind die als „unsicher“ oder „offen“ markierten Punkte geklärt oder gestrichen?</li>
+  <li>Passt das „Wir können helfen“-Ende zur Firma — oder soll es bei diesem Thema raus?</li>
+</ul>
+<h3>Schritt 4 — LinkedIn-Post</h3>
+<p>Ist der Beitrag fertig, erzeugt der Button <b>„✦ LinkedIn-Post“</b> einen Social-Entwurf aus dem Artikel: Hook mit der stärksten Zahl, drei bis fünf kurze Absätze, eine Frage an die Leser, maximal drei Hashtags — und garantiert ohne Emojis. Der Post ist editierbar und hat einen eigenen Kopieren-Button.</p>
+<h3>Schritt 5 — Speichern oder übergeben</h3>
+<ul>
+  <li><b>Als Entwurf speichern:</b> landet in den geteilten Entwürfen — jede/r im Team kann weiterarbeiten.</li>
+  <li><b>An WordPress übergeben:</b> Der Beitrag gilt als veröffentlicht und wandert in die Historie. Überschrift, Teaser, Text und Takeaways kopiert ihr über die ⧉-Buttons einzeln nach WordPress; der Quellen-Klarlink liegt als eigenes Feld bereit.</li>
+  <li><b>Verwerfen:</b> Thema geht zurück bzw. wird verworfen.</li>
+</ul>
+
+<h2>8. Entwürfe und Veröffentlicht-Historie</h2>
+<p><b>Entwürfe:</b> gespeicherte Zwischenstände des Teams — mit Kürzel der Bearbeiterin. Öffnen, weiterschreiben, fertigstellen.</p>
+<p><b>Veröffentlicht:</b> das Archiv aller übergebenen Beiträge, nach Tagen gruppiert. Jeder Eintrag lässt sich wieder öffnen — praktisch, wenn nachträglich der LinkedIn-Post fehlt oder ein Zitat geprüft werden soll.</p>
+
+<h2>9. Firmen und Farben</h2>
+<p>Jede Meldung gehört zu genau einer Einheit der Gruppe. Die Farbkante der Kachel zeigt sie auf einen Blick:</p>
+<table>
+  <tr><th>Einheit</th><th>Themenfeld</th><th>Farbe</th></tr>
+  <tr><td>CS Gruppe</td><td>Management, Digitalisierung, Governance (NIS-2, Förderprogramme, Fachkräfte, DigitalPakt)</td><td><span class="farb" style="background:#7ba30f"></span>Grün (dunkel)</td></tr>
+  <tr><td>CS Care</td><td>Gesundheits-IT: Krankenhaus, KRITIS/B3S, gematik, Gesundheitsdaten</td><td><span class="farb" style="background:#4d8f3c"></span>Tannengrün</td></tr>
+  <tr><td>commpanion</td><td>Workplace, Cloud, IT-Security: M365, Zero Trust, Ransomware, MFA</td><td><span class="farb" style="background:#e9600f"></span>Orange</td></tr>
+  <tr><td>hup-si</td><td>ERP, Handwerk, Logistik, Prozesse: E-Rechnung, GoBD, Lieferkette</td><td><span class="farb" style="background:#f4573b"></span>Koralle</td></tr>
+  <tr><td>Light DS</td><td>Geschäftsprozesse, Dokumentenmanagement, Workflows</td><td><span class="farb" style="background:#4a5568"></span>Graublau</td></tr>
+  <tr><td>wunderbar</td><td>Co-Creation Space, New Work, Arbeitswelt</td><td><span class="farb" style="background:#2e56a5"></span>Blau</td></tr>
+  <tr><td>WE RIDE</td><td>Fahrradmagazin, nachhaltige Mobilität, Verkehrswende</td><td><span class="farb" style="background:#c8322b"></span>Rot</td></tr>
+</table>
+<p>Die Zuordnung steuert auch den Schluss-Absatz der Beiträge: KIRA formuliert das „Wir können helfen“-Angebot passend zur jeweiligen Einheit.</p>
+
+<h2>10. Redaktionelle Spielregeln</h2>
+<ol>
+  <li><b>Vier Augen vor Veröffentlichung:</b> Kein KI-Text geht ungelesen raus. Faktencheck und „Fehlt noch“ sind Pflichtlektüre.</li>
+  <li><b>Quellen prüfen:</b> Primärquellen (Behörden, Statistikämter, Studien) schlagen Medienberichte. Im Zweifel Original öffnen — der Klarlink liegt in der Maske.</li>
+  <li><b>Kein Erfinden, kein Aufblasen:</b> Was KIRA als unsicher markiert, wird geklärt oder gestrichen — nie „stehengelassen, wird schon stimmen“.</li>
+  <li><b>Ton:</b> sachlich, erklärend, B2B. Keine Superlative, keine Werbesprache im Fließtext; das Unterstützungsangebot kommt erst am Ende und bleibt bescheiden.</li>
+  <li><b>Ein Thema, eine Person:</b> Was auf deinem Stack liegt, gehört dir — Übergaben laufen über „An Kolleg:in“, nicht durch stilles Wegschnappen.</li>
+</ol>
+
+<h2>11. Häufige Fragen</h2>
+<div class="faq">
+<p><b>Die Sichtung ist leer, obwohl Alerts kamen?</b> „↻ Neue Alerts holen“ klicken. Der automatische Import läuft stündlich — dazwischen hilft der Button.</p>
+<p><b>Eine Meldung ist der falschen Firma zugeordnet?</b> Zuordnung in der Meldung ändern. Passiert das bei einem Schlagwort häufiger, dem Admin melden — die Erkennung lässt sich nachschärfen.</p>
+<p><b>Der Text ist mir zu kurz oder zu flach?</b> Modus „Analyse“ wählen, einen konkreten Blickwinkel anklicken und in den Notizen sagen, was vertieft werden soll — dann neu generieren. KIRA hält Mindestlängen ein, aber Notizen machen den Unterschied zwischen okay und gut.</p>
+<p><b>Kann ich beide Fassungen mischen?</b> Ja — die Fassung wählen, die als Basis dient, und Passagen der anderen per Hand übernehmen. Alles ist editierbar.</p>
+<p><b>„Kein Zugang“ nach dem Login?</b> Team-Passwort falsch getippt oder vom Admin geändert. Abmelden und neu anmelden; im Zweifel Admin fragen.</p>
+<p><b>Wo sehe ich, was das alles kostet?</b> Jeder KI-Aufruf wird mitgezählt (auch pro Kürzel). Das Kosten-Dashboard ist Admin-Sache — siehe Anhang.</p>
+</div>
+
+<div class="pb"></div>
+<h2>12. Anhang: Für Administratoren</h2>
+<p class="anhang">Dieser Teil betrifft die Redaktion nicht im Alltag — er beschreibt, wo die Stellschrauben liegen.</p>
+<ul>
+  <li><b>Zulauf:</b> Google Alerts → Weiterleitung auf das Newsroom-Gmail → Label „Presse“ → stündlicher Import (Google Apps Script). Neue Alert-Schlagworte müssen einmalig in die Zuordnungsliste im Script eingetragen werden.</li>
+  <li><b>Server:</b> Supabase (EU/Frankfurt) — Datenbank plus eine Edge Function mit der gesamten Logik. Team- und Admin-Passwort sind dort als Secrets hinterlegt und jederzeit änderbar.</li>
+  <li><b>KI:</b> KIRA läuft auf Anthropic (Recherche/Scoring/LinkedIn) und OpenAI (Texterstellung). Beide Anbieter sind über Secrets austauschbar — auch gegen eine eigene KI der CS (jeder OpenAI-kompatible Endpunkt), ohne Codeänderung.</li>
+  <li><b>Kosten:</b> admin.html (eigene URL, Admin-Passwort) zeigt alle KI-Kosten nach Tag, Art, Modell und Kürzel. Hosting: GitHub Pages kostenlos, Supabase Free/Pro-Tier, KI nach Verbrauch.</li>
+  <li><b>Stilprofil:</b> Die Schreibregeln (CS-Dramaturgie, Tonalität, Längen) liegen als Text in der Datenbank (config, Schlüssel cs-context) und lassen sich dort ohne Deployment anpassen.</li>
+</ul>
+<p class="anhang">Fragen, Fehler, Wünsche: an den Systemverantwortlichen der CS Gruppe.</p>
+
+</div>
+</body>
+</html>
