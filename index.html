@@ -472,6 +472,14 @@
   .clock{flex-shrink:0}
   .bar-top .right{flex-wrap:wrap}
   @media(max-width:1080px){.clock{display:none}}
+  /* LinkedIn-Post-Box */
+  .mk-li{margin-top:14px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px 16px;}
+  .mk-li-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+  .mk-li-h span{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);}
+  #mk-li-text{font-size:13.5px;line-height:1.6;color:#2b2f36;white-space:normal;}
+  #mk-li-text:focus{outline:2px solid rgba(162,198,23,.5);border-radius:4px;}
+  .mk-li-wait{font-size:12.5px;color:var(--dim);}
+  .mk-li-btn{color:var(--greend);border-color:#c9d89a;}
 </style>
 </head>
 <body>
@@ -1146,6 +1154,26 @@ function askKira(q){
     .then(r=>r.ok?r.json():Promise.reject()).then(d=>{ if(d.error) throw new Error(d.error); M.kiraAsking=false; M.kiraAnswer={q,a:d.answer||'—'}; renderMaske(); })
     .catch(()=>{ M.kiraAsking=false; M.kiraAnswer={q,a:'KIRA ist gerade nicht erreichbar. Läuft der Server?'}; renderMaske(); });
 }
+async function mkLinkedIn(){
+  if(!M||!M.article){ toast('Erst den Artikel schreiben lassen',true); return; }
+  captureEdits();
+  const v=M.article[M.variant]||{};
+  const box=document.getElementById('mk-li');
+  box.innerHTML='<div class="mk-li"><div class="mk-li-h"><span>✦ KIRA schreibt den LinkedIn-Post …</span></div><div class="mk-li-wait">Hook, Kernpunkte, Frage an die Leser — ohne Emojis.</div></div>';
+  try{
+    const r=await apiPost('linkedin',{ title:v.title||M.story.title, text:(v.body||[]).join('\n\n'), takeaways:v.takeaways||[], editor:currentEditor });
+    const d=await r.json();
+    if(d.error) throw new Error(d.error);
+    M.linkedin=d.post||'';
+    box.innerHTML=`<div class="mk-li"><div class="mk-li-h"><span>LinkedIn-Post — ohne Emojis, editierbar</span><button class="mk-copy" onclick="copyLinkedIn()">Kopieren</button></div><div id="mk-li-text" contenteditable="true">${esc(M.linkedin).replace(/\n/g,'<br>')}</div></div>`;
+    toast('LinkedIn-Post erstellt — bitte redigieren');
+  }catch(e){ box.innerHTML=''; toast('LinkedIn-Post fehlgeschlagen: '+(e.message||e),true); }
+}
+function copyLinkedIn(){
+  const el=document.getElementById('mk-li-text'); if(!el){ return; }
+  M.linkedin=el.innerText;
+  navigator.clipboard.writeText(el.innerText).then(()=>toast('LinkedIn-Post kopiert'));
+}
 function mkExport(){
   if(!M || !M.story || !M.article){ toast('Noch kein Entwurf zum Übergeben'); return; }
   captureEdits();
@@ -1220,6 +1248,7 @@ function renderMaske(){
         <button class="mk-copy" onclick="copyField('titel')">⧉ Überschrift</button>
         <button class="mk-copy" onclick="copyField('teaser')">⧉ Teaser</button>
         <button class="mk-copy" onclick="copyField('text')">⧉ Text</button>
+        <button class="mk-copy mk-li-btn" onclick="mkLinkedIn()">✦ LinkedIn-Post</button>
       </div>
       <div class="mk-art">
         <h1 contenteditable="true">${v.title||'Überschrift …'}</h1>
@@ -1230,6 +1259,7 @@ function renderMaske(){
         <div class="mk-take-h"><span>3 Takeaways — für die WordPress-Box</span><button class="mk-copy" onclick="copyTakeaways()">Kopieren</button></div>
         <ol id="mk-take-list">${(v.takeaways||['','','']).map(t=>`<li contenteditable="true">${t||'Takeaway …'}</li>`).join('')}</ol>
       </div>
+      <div id="mk-li">${M.linkedin?`<div class="mk-li"><div class="mk-li-h"><span>LinkedIn-Post — ohne Emojis, editierbar</span><button class="mk-copy" onclick="copyLinkedIn()">Kopieren</button></div><div id="mk-li-text" contenteditable="true">${esc(M.linkedin).replace(/\n/g,'<br>')}</div></div>`:''}</div>
       <div style="margin-top:16px">${clarlink()}</div>
       <div class="mk-tools"><span class="mk-tchip" onclick="generateDraft()">✦ Neu generieren</span></div>`;
   } else {
